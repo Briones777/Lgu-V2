@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Municipality of Rosario, Cavite | Official Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ─── TOKENS ─────────────────────────────────────── */
+  :root {
+    /* Green scale (primary brand) */
+    --navy:   #052e16;   /* darkest forest green  */
+    --blue:   #166534;   /* main green            */
+    --sky:    #16a34a;   /* mid green             */
+    /* Red (accent / CTA) */
+    --gold:   #dc2626;   /* accent red            */
+    --gold-lt:#f87171;   /* light red             */
+    /* Surface */
+    --cream:  #f0fdf4;   /* green-tinted off-white*/
+    --white:  #ffffff;
+    --gray50: #f9fafb;
+    --gray100:#f3f4f6;
+    --gray300:#d1d5db;
+    --gray500:#6b7280;
+    --gray700:#374151;
+    --gray900:#111827;
+    /* Semantic */
+    --red:    #dc2626;
+    --green:  #15803d;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(5,46,22,.10);
+    --shadow-lg: 0 12px 48px rgba(5,46,22,.16);
+    --transition: .25s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ─── RESET ──────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 18px; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--gray900); background: var(--white); line-height: 1.6; }
+  img  { display: block; max-width: 100%; }
+  a    { color: inherit; text-decoration: none; }
+  ul   { list-style: none; }
+
+  /* ─── UTILITY ────────────────────────────────────── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .sr-only   { position: absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+  .section-label {
+    display: inline-block; font-size: .75rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700; color: var(--navy); line-height: 1.2;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 24px; border-radius: 8px; font-size: .9rem;
+    font-weight: 600; cursor: pointer; border: none;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary   { background: var(--blue); color: var(--white); box-shadow: 0 4px 14px rgba(22,101,52,.35); }
+  .btn-primary:hover { background: var(--navy); box-shadow: 0 6px 20px rgba(22,101,52,.45); }
+  .btn-outline   { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+  .btn-outline:hover { background: var(--blue); color: var(--white); }
+  .btn-ghost     { background: rgba(255,255,255,.15); color: var(--white); border: 1px solid rgba(255,255,255,.3); }
+  .btn-ghost:hover { background: rgba(255,255,255,.25); }
+
+  /* ─── ANNOUNCEMENT BAR ───────────────────────────── */
+  .announce-bar {
+    background: var(--navy); color: rgba(255,255,255,.85);
+    font-size: .8rem; font-weight: 500; padding: 8px 0;
+    overflow: hidden;
+  }
+  .announce-bar .ticker {
+    display: flex; gap: 48px; white-space: nowrap;
+    animation: ticker 28s linear infinite;
+  }
+  .announce-bar .ticker span { color: var(--gold); font-weight: 700; margin-right: 6px; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ─── NAVBAR ─────────────────────────────────────── */
+  .navbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray100);
+    box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  }
+  .navbar-inner {
+    display: flex; align-items: center; gap: 32px;
+    padding: 14px 24px; max-width: 1200px; margin: 0 auto;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-badge {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: grid; place-items: center; flex-shrink: 0;
+  }
+  .logo-badge svg { width: 22px; height: 22px; fill: var(--gold); }
+  .logo-text { line-height: 1.2; }
+  .logo-text strong { display: block; font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--navy); }
+  .logo-text small  { font-size: .7rem; color: var(--gray500); letter-spacing: .06em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 4px; margin-left: auto; }
+  .nav-links a {
+    padding: 8px 14px; border-radius: 6px; font-size: .875rem; font-weight: 500;
+    color: var(--gray700); transition: background var(--transition), color var(--transition);
+  }
+  .nav-links a:hover { background: var(--gray100); color: var(--navy); }
+  .nav-links a.active { color: var(--blue); background: rgba(22,101,52,.07); }
+  .nav-cta { margin-left: 8px; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--gray900); margin: 5px 0; border-radius: 2px; transition: var(--transition); }
+
+  /* ─── HERO ───────────────────────────────────────── */
+  .hero {
+    position: relative; min-height: 92vh;
+    display: flex; align-items: center;
+    background: linear-gradient(150deg, var(--navy) 0%, var(--blue) 60%, #14532d 100%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; opacity: .07;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-glow {
+    position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(220,38,38,.15) 0%, transparent 70%);
+    right: -100px; top: 50%; transform: translateY(-50%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 680px; color: var(--white);
+    animation: fadeUp .8s ease both;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold-lt); margin-bottom: 18px;
+  }
+  .hero-eyebrow::before { content:''; width: 32px; height: 2px; background: var(--gold); }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 700; line-height: 1.1; margin-bottom: 20px;
+  }
+  .hero-title em { color: var(--gold-lt); font-style: normal; }
+  .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.8); max-width: 520px; margin-bottom: 32px; line-height: 1.75; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,.5); font-size: .72rem; letter-spacing: .1em;
+    text-transform: uppercase; animation: bounce 2s ease-in-out infinite;
+  }
+  .hero-scroll svg { width: 20px; height: 20px; stroke: currentColor; fill: none; }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+
+  /* ─── QUICK LINKS STRIP ──────────────────────────── */
+  .quick-strip {
+    background: var(--white); border-bottom: 1px solid var(--gray100);
+    box-shadow: var(--shadow);
+  }
+  .quick-strip-inner {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px; margin: 0 auto;
+  }
+  .quick-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 20px 24px; border-right: 1px solid var(--gray100);
+    transition: background var(--transition); cursor: pointer;
+  }
+  .quick-item:last-child { border-right: none; }
+  .quick-item:hover { background: var(--gray50); }
+  .quick-icon {
+    width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+    display: grid; place-items: center;
+  }
+  .quick-icon svg { width: 22px; height: 22px; }
+  .qi-red   { background: #fef2f2; color: var(--red); }
+  .qi-blue  { background: #f0fdf4; color: var(--sky); }
+  .qi-green { background: #dcfce7; color: var(--green); }
+  .qi-gold  { background: #fef2f2; color: #b91c1c; }
+  .quick-text strong { display: block; font-size: .9rem; font-weight: 600; color: var(--navy); }
+  .quick-text small  { font-size: .78rem; color: var(--gray500); }
+
+  /* ─── SECTION BASE ───────────────────────────────── */
+  .section { padding: 80px 0; }
+  .section.alt { background: var(--cream); }
+  .section-head { margin-bottom: 48px; }
+  .section-head.center { text-align: center; }
+  .section-desc { color: var(--gray500); margin-top: 10px; max-width: 560px; font-size: .95rem; }
+  .section-head.center .section-desc { margin: 10px auto 0; }
+
+  /* ─── SERVICES GRID ──────────────────────────────── */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--white); border: 1px solid var(--gray100); border-radius: var(--radius);
+    padding: 28px; transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  }
+  .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+  .svc-icon {
+    width: 52px; height: 52px; border-radius: 12px; margin-bottom: 18px;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: grid; place-items: center;
+  }
+  .svc-icon svg { width: 24px; height: 24px; stroke: var(--white); fill: none; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 8px; }
+  .service-card p { font-size: .88rem; color: var(--gray500); line-height: 1.65; margin-bottom: 16px; }
+  .service-card a { font-size: .82rem; font-weight: 600; color: var(--blue); letter-spacing: .03em; }
+  .service-card a:hover { text-decoration: underline; }
+
+  /* ─── EVENTS ─────────────────────────────────────── */
+  .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .event-card {
+    border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--gray100); background: var(--white);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .event-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .event-img {
+    height: 180px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  }
+  .event-img svg { width: 48px; height: 48px; stroke: rgba(255,255,255,.3); fill: none; }
+  .event-date-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--red); color: var(--white);
+    font-size: .72rem; font-weight: 700; padding: 4px 10px;
+    border-radius: 4px; letter-spacing: .06em; text-transform: uppercase;
+  }
+  .event-body { padding: 20px; }
+  .event-body h3 { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .event-body p  { font-size: .82rem; color: var(--gray500); margin-bottom: 14px; }
+  .event-link { font-size: .8rem; font-weight: 600; color: var(--blue); }
+  .event-link:hover { text-decoration: underline; }
+
+  /* ─── STATS BANNER ───────────────────────────────── */
+  .stats-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 64px 0; position: relative; overflow: hidden;
+  }
+  .stats-banner::before {
+    content:''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='.04'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .stats-grid {
+    position: relative; display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 32px; text-align: center; color: var(--white);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; color: var(--gold-lt); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label { font-size: .85rem; color: rgba(255,255,255,.7); font-weight: 500; letter-spacing: .04em; }
+  .stat-divider { border: none; border-left: 1px solid rgba(255,255,255,.15); }
+
+  /* ─── HOTLINES ───────────────────────────────────── */
+  .sidebar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .hotlines-card, .announcements-card {
+    background: var(--white); border: 1px solid var(--gray100);
+    border-radius: var(--radius); padding: 28px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy);
+    margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--gray100);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card-title svg { width: 20px; height: 20px; stroke: var(--red); fill: none; }
+  .hotline-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid var(--gray100);
+  }
+  .hotline-item:last-child { border-bottom: none; }
+  .hotline-label { display: flex; align-items: center; gap: 10px; font-size: .88rem; font-weight: 500; color: var(--gray700); }
+  .hotline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+  .hotline-num  { font-size: .88rem; font-weight: 700; color: var(--navy); }
+  .announce-item {
+    display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--gray100);
+    align-items: flex-start;
+  }
+  .announce-item:last-child { border-bottom: none; }
+  .announce-date {
+    background: var(--blue); color: var(--white); border-radius: 6px;
+    min-width: 46px; text-align: center; padding: 6px 4px; flex-shrink: 0;
+  }
+  .announce-date .ad-day   { font-size: 1.1rem; font-weight: 700; line-height: 1; }
+  .announce-date .ad-month { font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; }
+  .announce-text strong    { display: block; font-size: .88rem; color: var(--navy); margin-bottom: 2px; }
+  .announce-text small     { font-size: .78rem; color: var(--gray500); }
+
+  /* ─── QUICK SERVICES ─────────────────────────────── */
+  .qs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .qs-item {
+    background: var(--white); border: 1px solid var(--gray100); border-radius: var(--radius);
+    padding: 22px 18px; text-align: center; cursor: pointer;
+    transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .qs-item:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--red); }
+  .qs-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(22,101,52,.1), rgba(22,101,52,.05));
+    display: grid; place-items: center;
+  }
+  .qs-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; }
+  .qs-item span { font-size: .82rem; font-weight: 600; color: var(--navy); }
+
+  /* ─── GALLERY ────────────────────────────────────── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+  .gallery-item { border-radius: var(--radius); overflow: hidden; position: relative; cursor: pointer; }
+  .gallery-item:first-child { grid-column: span 2; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; display: block; }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-overlay {
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,46,22,.75) 0%, transparent 60%);
+    opacity: 0; transition: opacity var(--transition); display: flex; align-items: flex-end; padding: 16px;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay span { color: var(--white); font-size: .82rem; font-weight: 600; }
+  .gallery-cta { text-align: center; margin-top: 32px; }
+  .img-placeholder {
+    background: linear-gradient(135deg, #166534 0%, #052e16 100%);
+    height: 240px; display: flex; align-items: center; justify-content: center;
+  }
+  .img-placeholder.tall { height: 360px; }
+  .img-placeholder svg { width: 48px; height: 48px; stroke: rgba(255,255,255,.2); fill: none; }
+
+  /* ─── MAYOR MESSAGE ──────────────────────────────── */
+  .mayor-wrap {
+    display: grid; grid-template-columns: 340px 1fr; gap: 64px; align-items: center;
+  }
+  .mayor-photo-wrap { position: relative; }
+  .mayor-photo {
+    width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    box-shadow: var(--shadow-lg);
+  }
+  .mayor-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .mayor-badge {
+    position: absolute; bottom: -18px; right: -18px;
+    background: var(--red); color: var(--white); border-radius: 12px;
+    padding: 14px 18px; text-align: center; box-shadow: var(--shadow);
+    font-family: 'Playfair Display', serif;
+  }
+  .mayor-badge strong { display: block; font-size: 1.1rem; }
+  .mayor-badge small  { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+  .mayor-content blockquote {
+    font-family: 'Playfair Display', serif; font-size: 1.35rem; font-style: italic;
+    color: var(--navy); line-height: 1.7; margin-bottom: 20px;
+    padding-left: 20px; border-left: 3px solid var(--red);
+  }
+  .mayor-content p { color: var(--gray500); line-height: 1.8; font-size: .95rem; margin-bottom: 24px; }
+  .mayor-sig { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); }
+  .mayor-sig small { display: block; font-family: 'DM Sans', sans-serif; font-size: .8rem; color: var(--gray500); font-style: normal; margin-top: 2px; }
+
+  /* ─── DEMOGRAPHY TABLE ───────────────────────────── */
+  .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--gray100); }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  thead { background: var(--navy); color: var(--white); }
+  th { padding: 14px 20px; text-align: left; font-weight: 600; letter-spacing: .04em; font-size: .82rem; text-transform: uppercase; }
+  td { padding: 13px 20px; color: var(--gray700); }
+  tbody tr { border-bottom: 1px solid var(--gray100); transition: background var(--transition); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--gray50); }
+  .pop-change.positive { color: var(--green); font-weight: 600; }
+  .pop-change.negative { color: var(--red); font-weight: 600; }
+
+  /* ─── MAP ────────────────────────────────────────── */
+  .map-wrap { border-radius: var(--radius); overflow: hidden; height: 420px; box-shadow: var(--shadow); }
+  .map-wrap iframe { width: 100%; height: 100%; border: none; }
+
+  /* ─── FOOTER ─────────────────────────────────────── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,.75);
+    padding: 64px 0 0;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand .logo-text strong { color: var(--white); font-size: 1.1rem; }
+  .footer-brand .logo-text small  { color: rgba(255,255,255,.4); }
+  .footer-brand p { font-size: .87rem; line-height: 1.75; margin-top: 14px; color: rgba(255,255,255,.6); }
+  .footer-col h4 { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 16px; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: .87rem; color: rgba(255,255,255,.6); transition: color var(--transition); }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08); padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .8rem; color: rgba(255,255,255,.4);
+  }
+  .footer-bottom a { color: var(--gold-lt); }
+
+  /* ─── MOBILE NAV ─────────────────────────────────── */
+  .mobile-nav {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: var(--navy); flex-direction: column;
+    padding: 80px 32px 32px; gap: 8px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    color: rgba(255,255,255,.85); font-size: 1.3rem; font-family: 'Playfair Display', serif;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08);
+    transition: color var(--transition);
+  }
+  .mobile-nav a:hover { color: var(--gold-lt); }
+  .mobile-nav-close {
+    position: absolute; top: 20px; right: 20px; background: none;
+    border: none; cursor: pointer; padding: 8px;
+  }
+  .mobile-nav-close svg { width: 28px; height: 28px; stroke: var(--white); fill: none; }
+
+  /* ─── RESPONSIVE ─────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .services-grid, .events-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .mayor-wrap { grid-template-columns: 280px 1fr; gap: 40px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:first-child { grid-column: span 1; }
+    .quick-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .quick-item { border-bottom: 1px solid var(--gray100); }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: block; margin-left: auto; }
+    .section { padding: 56px 0; }
+    .services-grid, .events-grid, .qs-grid { grid-template-columns: 1fr; }
+    .sidebar-grid { grid-template-columns: 1fr; }
+    .mayor-wrap { grid-template-columns: 1fr; }
+    .mayor-photo-wrap { max-width: 280px; margin: 0 auto; }
+    .mayor-badge { bottom: -14px; right: -10px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .qs-grid { grid-template-columns: repeat(2, 1fr); }
+    .quick-strip-inner { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── ANNOUNCEMENT BAR ─────────────────────────────── -->
+<div class="announce-bar" role="marquee" aria-label="Announcements">
+  <div class="ticker">
+    <div>
+      <span>📢</span> Barangay Cleanup Drive – Dec 20, 2025
+      &nbsp;|&nbsp;
+      <span>💉</span> COVID-19 Vaccination Schedule – Jan 5, 2026
+      &nbsp;|&nbsp;
+      <span>🎉</span> Tinapang Salinas Festival – Feb 10–15, 2026
+      &nbsp;|&nbsp;
+      <span>📋</span> Municipal Budget Hearing – Mar 1, 2026
+      &nbsp;|&nbsp;
+      <span>🏢</span> Business One-Stop-Shop 2025 – Register Now
+    </div>
+    <!-- duplicate for seamless loop -->
+    <div aria-hidden="true">
+      <span>📢</span> Barangay Cleanup Drive – Dec 20, 2025
+      &nbsp;|&nbsp;
+      <span>💉</span> COVID-19 Vaccination Schedule – Jan 5, 2026
+      &nbsp;|&nbsp;
+      <span>🎉</span> Tinapang Salinas Festival – Feb 10–15, 2026
+      &nbsp;|&nbsp;
+      <span>📋</span> Municipal Budget Hearing – Mar 1, 2026
+      &nbsp;|&nbsp;
+      <span>🏢</span> Business One-Stop-Shop 2025 – Register Now
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVBAR ────────────────────────────────────────── -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="#" class="logo" aria-label="Municipality of Rosario Home">
+      <div class="logo-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="logo-text">
+        <strong>Municipality of Rosario</strong>
+        <small>Cavite, Philippines</small>
+      </div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="#about" role="menuitem" class="active">About</a>
+      <a href="#services" role="menuitem">Services</a>
+      <a href="#government" role="menuitem">Government</a>
+      <a href="#events" role="menuitem">Events</a>
+      <a href="#contact" role="menuitem">Contact</a>
+    </div>
+    <a href="#contact" class="btn btn-primary nav-cta" aria-label="Contact us">Contact Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── MOBILE NAV ────────────────────────────────────── -->
+<nav class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <button class="mobile-nav-close" id="nav-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#government">Government</a>
+  <a href="#events">Events</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────── -->
+<section class="hero" id="home" aria-label="Welcome banner">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Official Website</p>
+      <h1 class="hero-title">
+        Welcome to<br>
+        <em>Rosario, Cavite</em>
+      </h1>
+      <p class="hero-sub">
+        Maligayang pagdating sa bayan ng Rosario — a progressive, vibrant municipality committed to transparent,
+        efficient, and inclusive public service.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#about" class="btn btn-ghost">Learn About Rosario</a>
+      </div>
+    </div>
+  </div>
+  <a href="#quick-access" class="hero-scroll" aria-label="Scroll down">
+    <svg viewBox="0 0 24 24" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+    scroll
+  </a>
+</section>
+
+<!-- ── QUICK ACCESS STRIP ──────────────────────────── -->
+<div class="quick-strip" id="quick-access">
+  <div class="quick-strip-inner">
+    <a href="#hospital" class="quick-item">
+      <div class="quick-icon qi-red" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </div>
+      <div class="quick-text">
+        <strong>Find a Hospital</strong>
+        <small>Nearest medical facilities</small>
+      </div>
+    </a>
+    <a href="#education" class="quick-item">
+      <div class="quick-icon qi-blue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none" stroke="currentColor">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/>
+        </svg>
+      </div>
+      <div class="quick-text">
+        <strong>Schools Nearby</strong>
+        <small>Education institutions</small>
+      </div>
+    </a>
+    <a href="#government" class="quick-item">
+      <div class="quick-icon qi-green" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none" stroke="currentColor">
+          <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M8 10v11M12 10v11M16 10v11M20 10v11"/>
+        </svg>
+      </div>
+      <div class="quick-text">
+        <strong>Government</strong>
+        <small>Ordinances & policies</small>
+      </div>
+    </a>
+    <a href="#contact" class="quick-item">
+      <div class="quick-icon qi-gold" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" fill="none" stroke="currentColor">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <div class="quick-text">
+        <strong>Contact Us</strong>
+        <small>Concerns & reports</small>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ── STATS BANNER ────────────────────────────────── -->
+<div class="stats-banner" aria-label="Key statistics">
+  <div class="container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">20</div>
+        <div class="stat-label">Barangays</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div>
+        <div class="stat-num">112K+</div>
+        <div class="stat-label">Population</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div>
+        <div class="stat-num">768</div>
+        <div class="stat-label">Hectares Total Area</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Tourist Spots</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GOVERNMENT SECTION ─────────────────────────── -->
+<section class="section" id="government">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Governance</span>
+      <h2 class="section-title">The Government</h2>
+      <p class="section-desc">Access official documents, policies, and transparency reports from the Municipality of Rosario.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Municipal Ordinances</h3>
+        <p>Alamin ang mga batas na nalatag sa Bayan ng Rosario, Cavite. Mga opisyal na resolusyon at ordinansa.</p>
+        <a href="#">View Ordinances →</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Citizen Charter</h3>
+        <p>Alamin ang mga proyekto ng mga organization sa Rosario, Cavite. Aming mga pangako sa mamamayan.</p>
+        <a href="#">Read Charter →</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Full Disclosure Policy</h3>
+        <p>Tignan ang mga proyekto na isinasagawa ng Rosario. Transparency in governance and public funds.</p>
+        <a href="#">View Reports →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTS ──────────────────────────────────────── -->
+<section class="section alt" id="events">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">What's Happening</span>
+      <h2 class="section-title">Latest Events</h2>
+      <p class="section-desc">Stay updated with the latest happenings in the Municipality of Rosario.</p>
+    </div>
+    <div class="events-grid">
+      <article class="event-card">
+        <div class="event-img">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="event-date-badge">2025</span>
+        </div>
+        <div class="event-body">
+          <h3>Business One-Stop-Shop 2025</h3>
+          <p>Renew your business permits quickly and easily with our streamlined one-stop processing center.</p>
+          <a href="#" class="event-link">View Details →</a>
+        </div>
+      </article>
+      <article class="event-card">
+        <div class="event-img" style="background: linear-gradient(135deg, #dc2626, #7f1d1d);">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="event-date-badge">Feb 2026</span>
+        </div>
+        <div class="event-body">
+          <h3>Tinapang Salinas Festival</h3>
+          <p>Celebrate Rosario's rich fishing heritage at the annual Tinapang Salinas cultural festival, Feb 10–15.</p>
+          <a href="#" class="event-link">View Details →</a>
+        </div>
+      </article>
+      <article class="event-card">
+        <div class="event-img" style="background: linear-gradient(135deg, #166534, #15803d);">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="event-date-badge">Dec 2025</span>
+        </div>
+        <div class="event-body">
+          <h3>Barangay Cleanup Drive</h3>
+          <p>Join hands with your community in keeping our barangays clean and beautiful on December 20, 2025.</p>
+          <a href="#" class="event-link">View Details →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOTLINES + ANNOUNCEMENTS ────────────────────── -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Important</span>
+      <h2 class="section-title">Emergency Hotlines &amp; Announcements</h2>
+    </div>
+    <div class="sidebar-grid">
+      <div class="hotlines-card">
+        <h3 class="card-title">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Emergency Hotlines
+        </h3>
+        <div class="hotline-item">
+          <span class="hotline-label"><span class="hotline-dot"></span>Philippine National Police</span>
+          <span class="hotline-num">911</span>
+        </div>
+        <div class="hotline-item">
+          <span class="hotline-label"><span class="hotline-dot" style="background:#dc2626"></span>Bureau of Fire Protection</span>
+          <span class="hotline-num">912</span>
+        </div>
+        <div class="hotline-item">
+          <span class="hotline-label"><span class="hotline-dot" style="background:#16a34a"></span>Municipal Hospital</span>
+          <span class="hotline-num">913</span>
+        </div>
+        <div class="hotline-item">
+          <span class="hotline-label"><span class="hotline-dot" style="background:#dc2626"></span>Philippine Red Cross</span>
+          <span class="hotline-num">914</span>
+        </div>
+        <div class="hotline-item">
+          <span class="hotline-label"><span class="hotline-dot" style="background:#14532d"></span>Municipal Hotline</span>
+          <span class="hotline-num">(046) 888-9600</span>
+        </div>
+      </div>
+      <div class="announcements-card">
+        <h3 class="card-title">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          Announcements
+        </h3>
+        <div class="announce-item">
+          <div class="announce-date"><div class="ad-day">20</div><div class="ad-month">Dec</div></div>
+          <div class="announce-text">
+            <strong>Barangay Cleanup Drive</strong>
+            <small>Community-wide cleanup initiative. All residents welcome.</small>
+          </div>
+        </div>
+        <div class="announce-item">
+          <div class="announce-date" style="background: var(--green);"><div class="ad-day">5</div><div class="ad-month">Jan</div></div>
+          <div class="announce-text">
+            <strong>COVID-19 Vaccination</strong>
+            <small>Free vaccination for all eligible residents. Bring valid ID.</small>
+          </div>
+        </div>
+        <div class="announce-item">
+          <div class="announce-date" style="background: var(--red);"><div class="ad-day">10</div><div class="ad-month">Feb</div></div>
+          <div class="announce-text">
+            <strong>Tinapang Salinas Festival</strong>
+            <small>Annual cultural festival runs Feb 10–15, 2026.</small>
+          </div>
+        </div>
+        <div class="announce-item">
+          <div class="announce-date" style="background: #14532d;"><div class="ad-day">1</div><div class="ad-month">Mar</div></div>
+          <div class="announce-text">
+            <strong>Municipal Budget Hearing</strong>
+            <small>Open to all residents. Venue: Municipal Session Hall.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK SERVICES ──────────────────────────────── -->
+<section class="section alt" id="services">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">Online Services</span>
+      <h2 class="section-title">Quick Services</h2>
+      <p class="section-desc">Access government services without leaving your home.</p>
+    </div>
+    <div class="qs-grid">
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <span>Business Permit</span>
+      </a>
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <span>Voter's Certification</span>
+      </a>
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <span>Civil Registry</span>
+      </a>
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <span>Health Services</span>
+      </a>
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <span>FOI Request</span>
+      </a>
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>Bids &amp; Awards</span>
+      </a>
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <span>Download Forms</span>
+      </a>
+      <a href="#" class="qs-item">
+        <div class="qs-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <span>Track Request</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL SERVICES ─────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Community</span>
+      <h2 class="section-title">Our Services to You</h2>
+      <p class="section-desc">Tulong at mga karagdagang serbisyo para sa mga mamamayan ng Rosario.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #166534, #14532d);">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Libreng Palupa</h3>
+        <p>Libreng palupa para sa mga pamilya na kapos palad. Maaari silang matulungan ng ating Munisipyo.</p>
+        <a href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #dc2626, #991b1b);">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Funeral Assistance</h3>
+        <p>Tulong para sa pagpapalibing sa mga yumaong mamamayan ng Rosario, Cavite.</p>
+        <a href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #16a34a, #166534);">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <h3>Medical Assistance</h3>
+        <p>Tulong pangkalusugan sa mga kapus-palad na mamamayan ng Rosario, Cavite.</p>
+        <a href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #15803d, #0a2314);">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/></svg>
+        </div>
+        <h3>Free Scholarship</h3>
+        <p>Libreng pag-aaral para sa mga masisikap na estudyante ng Rosario, Cavite.</p>
+        <a href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #b91c1c, #7f1d1d);">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Educational Assistance</h3>
+        <p>Tulong pinansyal para sa mga mag-aaral na nagnanais makapag-aral sa kabila ng kahirapan.</p>
+        <a href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #22c55e, #15803d);">
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Libreng Pabahay</h3>
+        <p>Libreng pabahay sa mga pamilya na kapos palad. Maaari silang matulungan ng ating Munisipyo.</p>
+        <a href="#">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ─────────────────────────────────────── -->
+<section class="section alt" id="gallery" aria-label="Photo gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">#JustLoveRosario</span>
+      <h2 class="section-title">Explore Rosario</h2>
+      <p class="section-desc">Discover the beauty, culture, and growth of our municipality.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://briones777.github.io/lgu-demo-website/rsr-images/5e4b604eead20737166907-1.jpg"
+             alt="Cavite Economic Zone aerial view" loading="lazy"
+             onerror="this.parentElement.classList.add('img-placeholder','tall'); this.style.display='none';" />
+        <div class="gallery-overlay"><span>Cavite Economic Zone</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://briones777.github.io/lgu-demo-website/rsr-images/5e58fc33857cb665869604.jpg"
+             alt="Rosario, Cavite scenery" loading="lazy"
+             onerror="this.parentElement.classList.add('img-placeholder'); this.style.display='none';" />
+        <div class="gallery-overlay"><span>Scenic Rosario</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://briones777.github.io/lgu-demo-website/rsr-images/5e4b608a8581c894425215.jpg"
+             alt="Rosario landmark" loading="lazy"
+             onerror="this.parentElement.classList.add('img-placeholder'); this.style.display='none';" />
+        <div class="gallery-overlay"><span>Local Landmarks</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://briones777.github.io/lgu-demo-website/rsr-images/SM-Rosario.jpg"
+             alt="SM Rosario" loading="lazy"
+             onerror="this.parentElement.classList.add('img-placeholder'); this.style.display='none';" />
+        <div class="gallery-overlay"><span>SM Rosario</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://briones777.github.io/lgu-demo-website/rsr-images/wide-aerial-view-cavite-export-p.jpg"
+             alt="Aerial view of Cavite Export Processing Zone" loading="lazy"
+             onerror="this.parentElement.classList.add('img-placeholder'); this.style.display='none';" />
+        <div class="gallery-overlay"><span>CEPZ Aerial View</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://briones777.github.io/lgu-demo-website/rsr-images/675a68c164f95351191980-1-768x512.jpg"
+             alt="Rosario community" loading="lazy"
+             onerror="this.parentElement.classList.add('img-placeholder'); this.style.display='none';" />
+        <div class="gallery-overlay"><span>Our Community</span></div>
+      </div>
+    </div>
+    <div class="gallery-cta">
+      <a href="#" class="btn btn-outline">View Full Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT / DEMOGRAPHY ──────────────────────────── -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Demographics</span>
+      <h2 class="section-title">Demography of Rosario</h2>
+      <p class="section-desc">
+        Rosario is one of the densest municipalities in Cavite — home to the pioneering Cavite Economic Zone
+        that drove the province's industrial revolution.
+      </p>
+    </div>
+    <p style="color:var(--gray500); line-height:1.8; margin-bottom:20px; font-size:.95rem;">
+      In-migration has been a continuous phenomenon since the early 1990s, with people drawn by employment
+      opportunities in the economic zone. The municipality covers 768.36 hectares with a present population
+      density of 147 per hectare. The potential labor force (15 years and above) comprises 72.67% of
+      the total population, mostly engaged in fishing and trade, with a growth rate of 3.53%.
+    </p>
+    <div class="table-wrap" style="margin-bottom:40px;" role="region" aria-label="Population data table">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Total Population</th>
+            <th scope="col">Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2015</td><td>110,706</td><td class="pop-change positive">+18,453</td></tr>
+          <tr><td>2010</td><td>92,253</td><td class="pop-change negative">−1,975</td></tr>
+          <tr><td>2007</td><td>94,228</td><td class="pop-change positive">+20,563</td></tr>
+          <tr><td>2000</td><td>73,665</td><td class="pop-change positive">+19,579</td></tr>
+          <tr><td>1995</td><td>54,086</td><td class="pop-change positive">+8,681</td></tr>
+          <tr><td>1990</td><td>45,405</td><td class="pop-change positive">+12,093</td></tr>
+          <tr><td>1980</td><td>33,312</td><td class="pop-change positive">+4,587</td></tr>
+          <tr><td>1975</td><td>28,725</td><td class="pop-change positive">+4,908</td></tr>
+          <tr><td>1970</td><td>23,817</td><td class="pop-change positive">+7,590</td></tr>
+          <tr><td>1960</td><td>16,227</td><td class="pop-change positive">+4,333</td></tr>
+          <tr><td>1948</td><td>11,894</td><td class="pop-change positive">+2,000</td></tr>
+          <tr><td>1939</td><td>9,894</td><td class="pop-change positive">+2,777</td></tr>
+          <tr><td>1918</td><td>7,117</td><td class="pop-change positive">+156</td></tr>
+          <tr><td>1903</td><td>6,601</td><td style="color:var(--gray400)">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Map -->
+    <h3 style="font-family:'Playfair Display',serif; color:var(--navy); font-size:1.25rem; margin-bottom:20px;">Find Us on the Map</h3>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3850.423812345678!2d120.8789!3d14.3889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7b6ab8f1234%3A0xabcdef1234567890!2sMunicipality%20of%20Rosario%2C%20Cavite%2C%20Philippines!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+        allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Location of Municipality of Rosario, Cavite on Google Maps"
+        aria-label="Google Maps showing Municipality of Rosario, Cavite">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAYOR MESSAGE ───────────────────────────────── -->
+<section class="section alt">
+  <div class="container">
+    <div class="mayor-wrap">
+      <div class="mayor-photo-wrap">
+        <div class="mayor-photo">
+          <img src="https://briones777.github.io/lgu-demo-website/rsr-images/AboutRosarioBlk3-Thumb2-ViceMayo.png"
+               alt="Mayor of Rosario, Cavite"
+               onerror="this.style.display='none'" />
+        </div>
+        <div class="mayor-badge">
+          <strong>Municipal Mayor</strong>
+          <small>Rosario, Cavite</small>
+        </div>
+      </div>
+      <div class="mayor-content">
+        <span class="section-label">Leadership</span>
+        <h2 class="section-title" style="margin-bottom:24px;">Message from<br>the Mayor</h2>
+        <blockquote>
+          "We opted to innovate our website for more user-friendly functionalities,
+          while maintaining its professional presence."
+        </blockquote>
+        <p>
+          For the past decade, every organization's digital presence has become a vital part of its identity.
+          As a community who continues to improve and adapt to the speed of the digital age, we are committed
+          to bringing our services closer to every resident of Rosario.
+        </p>
+        <p>
+          With these upgrades, we hope to show that the municipality we hold dear is a place where we can live,
+          work, play — and most definitely do business in. We hope to see you in one of your adventures,
+          as you uncover the hidden gems in our city and in our people.
+        </p>
+        <div class="mayor-sig">
+          The Mayor's Office
+          <small>Municipality of Rosario, Cavite</small>
+        </div>
+        <br>
+        <a href="https://briones777.github.io/lgu-demo-website/mayorofc.html" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          Know More About the Mayor
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:16px;">
+          <div class="logo-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="logo-text">
+            <strong>Municipality of Rosario</strong>
+            <small>Cavite, Philippines</small>
+          </div>
+        </div>
+        <p>Committed to delivering transparent, efficient, and inclusive public service to all residents of Rosario, Cavite.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Government</h4>
+        <ul>
+          <li><a href="#">Mayor's Office</a></li>
+          <li><a href="#">Municipal Council</a></li>
+          <li><a href="#">Ordinances</a></li>
+          <li><a href="#">Full Disclosure</a></li>
+          <li><a href="#">Citizen Charter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Business Permit</a></li>
+          <li><a href="#">Civil Registry</a></li>
+          <li><a href="#">Health Services</a></li>
+          <li><a href="#">FOI Request</a></li>
+          <li><a href="#">Download Forms</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:046-888-9600">(046) 888-9600</a></li>
+          <li><a href="#">Rosario, Cavite</a></li>
+          <li><a href="#">Philippines</a></li>
+          <li><a href="#">Emergency: 911</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Municipality of Rosario, Cavite. All rights reserved.</span>
+      <span>Powered by the LGU Digital Services Team · <a href="#">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  const navClose  = document.getElementById('nav-close');
+
+  function openNav() {
+    mobileNav.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openNav);
+  navClose.addEventListener('click', closeNav);
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
