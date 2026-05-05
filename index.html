@@ -11,12 +11,12 @@
   /* ─── TOKENS ─────────────────────────────────────── */
   :root {
     /* Green scale (primary brand) */
-    --navy:   #052e16;   /* darkest forest green  */
-    --blue:   #166534;   /* main green            */
-    --sky:    #16a34a;   /* mid green             */
+    --navy:   #013a0f;   /* darkest forest green  */
+    --blue:   #0a6624;   /* main green — vivid    */
+    --sky:    #12a034;   /* mid green             */
     /* Red (accent / CTA) */
-    --gold:   #dc2626;   /* accent red            */
-    --gold-lt:#f87171;   /* light red             */
+    --gold:   #ff0000;   /* accent red — pure red */
+    --gold-lt:#ff5252;   /* light red             */
     /* Surface */
     --cream:  #f0fdf4;   /* green-tinted off-white*/
     --white:  #ffffff;
@@ -27,11 +27,11 @@
     --gray700:#374151;
     --gray900:#111827;
     /* Semantic */
-    --red:    #dc2626;
-    --green:  #15803d;
+    --red:    #ff0000;
+    --green:  #0a8c2a;
     --radius: 12px;
-    --shadow: 0 4px 24px rgba(5,46,22,.10);
-    --shadow-lg: 0 12px 48px rgba(5,46,22,.16);
+    --shadow: 0 4px 24px rgba(1,58,15,.12);
+    --shadow-lg: 0 12px 48px rgba(1,58,15,.18);
     --transition: .25s cubic-bezier(.4,0,.2,1);
   }
 
@@ -47,24 +47,24 @@
   .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
   .sr-only   { position: absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
   .section-label {
-    display: inline-block; font-size: .75rem; font-weight: 600;
+    display: inline-block; font-size: .8rem; font-weight: 600;
     letter-spacing: .12em; text-transform: uppercase; color: var(--gold);
     margin-bottom: 10px;
   }
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(2rem, 3.5vw, 2.85rem);
     font-weight: 700; color: var(--navy); line-height: 1.2;
   }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 11px 24px; border-radius: 8px; font-size: .9rem;
+    padding: 12px 26px; border-radius: 8px; font-size: 1rem;
     font-weight: 600; cursor: pointer; border: none;
     transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
   }
   .btn:hover { transform: translateY(-2px); }
-  .btn-primary   { background: var(--blue); color: var(--white); box-shadow: 0 4px 14px rgba(22,101,52,.35); }
-  .btn-primary:hover { background: var(--navy); box-shadow: 0 6px 20px rgba(22,101,52,.45); }
+  .btn-primary   { background: var(--blue); color: var(--white); box-shadow: 0 4px 14px rgba(10,102,36,.40); }
+  .btn-primary:hover { background: var(--navy); box-shadow: 0 6px 20px rgba(10,102,36,.55); }
   .btn-outline   { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
   .btn-outline:hover { background: var(--blue); color: var(--white); }
   .btn-ghost     { background: rgba(255,255,255,.15); color: var(--white); border: 1px solid rgba(255,255,255,.3); }
@@ -103,15 +103,15 @@
   }
   .logo-badge svg { width: 22px; height: 22px; fill: var(--gold); }
   .logo-text { line-height: 1.2; }
-  .logo-text strong { display: block; font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--navy); }
-  .logo-text small  { font-size: .7rem; color: var(--gray500); letter-spacing: .06em; text-transform: uppercase; }
+  .logo-text strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); }
+  .logo-text small  { font-size: .72rem; color: var(--gray500); letter-spacing: .06em; text-transform: uppercase; }
   .nav-links { display: flex; gap: 4px; margin-left: auto; }
   .nav-links a {
-    padding: 8px 14px; border-radius: 6px; font-size: .875rem; font-weight: 500;
+    padding: 8px 14px; border-radius: 6px; font-size: .95rem; font-weight: 500;
     color: var(--gray700); transition: background var(--transition), color var(--transition);
   }
   .nav-links a:hover { background: var(--gray100); color: var(--navy); }
-  .nav-links a.active { color: var(--blue); background: rgba(22,101,52,.07); }
+  .nav-links a.active { color: var(--blue); background: rgba(10,102,36,.08); }
   .nav-cta { margin-left: 8px; }
   .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
   .hamburger span { display: block; width: 22px; height: 2px; background: var(--gray900); margin: 5px 0; border-radius: 2px; transition: var(--transition); }
@@ -120,7 +120,7 @@
   .hero {
     position: relative; min-height: 92vh;
     display: flex; align-items: center;
-    background: linear-gradient(150deg, var(--navy) 0%, var(--blue) 60%, #14532d 100%);
+    background: linear-gradient(150deg, var(--navy) 0%, var(--blue) 60%, #0a5c1e 100%);
     overflow: hidden;
   }
   .hero-bg {
@@ -145,11 +145,11 @@
   .hero-eyebrow::before { content:''; width: 32px; height: 2px; background: var(--gold); }
   .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
     font-weight: 700; line-height: 1.1; margin-bottom: 20px;
   }
   .hero-title em { color: var(--gold-lt); font-style: normal; }
-  .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.8); max-width: 520px; margin-bottom: 32px; line-height: 1.75; }
+  .hero-sub { font-size: 1.15rem; color: rgba(255,255,255,.8); max-width: 520px; margin-bottom: 32px; line-height: 1.75; }
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
   .hero-scroll {
     position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
@@ -185,16 +185,16 @@
   .qi-red   { background: #fef2f2; color: var(--red); }
   .qi-blue  { background: #f0fdf4; color: var(--sky); }
   .qi-green { background: #dcfce7; color: var(--green); }
-  .qi-gold  { background: #fef2f2; color: #b91c1c; }
-  .quick-text strong { display: block; font-size: .9rem; font-weight: 600; color: var(--navy); }
-  .quick-text small  { font-size: .78rem; color: var(--gray500); }
+  .qi-gold  { background: #fff0f0; color: #dd0000; }
+  .quick-text strong { display: block; font-size: .98rem; font-weight: 600; color: var(--navy); }
+  .quick-text small  { font-size: .84rem; color: var(--gray500); }
 
   /* ─── SECTION BASE ───────────────────────────────── */
   .section { padding: 80px 0; }
   .section.alt { background: var(--cream); }
   .section-head { margin-bottom: 48px; }
   .section-head.center { text-align: center; }
-  .section-desc { color: var(--gray500); margin-top: 10px; max-width: 560px; font-size: .95rem; }
+  .section-desc { color: var(--gray500); margin-top: 10px; max-width: 560px; font-size: 1.05rem; }
   .section-head.center .section-desc { margin: 10px auto 0; }
 
   /* ─── SERVICES GRID ──────────────────────────────── */
@@ -210,9 +210,9 @@
     display: grid; place-items: center;
   }
   .svc-icon svg { width: 24px; height: 24px; stroke: var(--white); fill: none; }
-  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 8px; }
-  .service-card p { font-size: .88rem; color: var(--gray500); line-height: 1.65; margin-bottom: 16px; }
-  .service-card a { font-size: .82rem; font-weight: 600; color: var(--blue); letter-spacing: .03em; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+  .service-card p { font-size: .95rem; color: var(--gray500); line-height: 1.65; margin-bottom: 16px; }
+  .service-card a { font-size: .88rem; font-weight: 600; color: var(--blue); letter-spacing: .03em; }
   .service-card a:hover { text-decoration: underline; }
 
   /* ─── EVENTS ─────────────────────────────────────── */
@@ -236,9 +236,9 @@
     border-radius: 4px; letter-spacing: .06em; text-transform: uppercase;
   }
   .event-body { padding: 20px; }
-  .event-body h3 { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-  .event-body p  { font-size: .82rem; color: var(--gray500); margin-bottom: 14px; }
-  .event-link { font-size: .8rem; font-weight: 600; color: var(--blue); }
+  .event-body h3 { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .event-body p  { font-size: .92rem; color: var(--gray500); margin-bottom: 14px; }
+  .event-link { font-size: .88rem; font-weight: 600; color: var(--blue); }
   .event-link:hover { text-decoration: underline; }
 
   /* ─── STATS BANNER ───────────────────────────────── */
@@ -256,10 +256,10 @@
   }
   .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 700; color: var(--gold-lt); line-height: 1;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 700; color: var(--gold-lt); line-height: 1;
     margin-bottom: 8px;
   }
-  .stat-label { font-size: .85rem; color: rgba(255,255,255,.7); font-weight: 500; letter-spacing: .04em; }
+  .stat-label { font-size: .95rem; color: rgba(255,255,255,.7); font-weight: 500; letter-spacing: .04em; }
   .stat-divider { border: none; border-left: 1px solid rgba(255,255,255,.15); }
 
   /* ─── HOTLINES ───────────────────────────────────── */
@@ -269,7 +269,7 @@
     border-radius: var(--radius); padding: 28px;
   }
   .card-title {
-    font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy);
+    font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--navy);
     margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--gray100);
     display: flex; align-items: center; gap: 10px;
   }
@@ -279,9 +279,9 @@
     padding: 10px 0; border-bottom: 1px solid var(--gray100);
   }
   .hotline-item:last-child { border-bottom: none; }
-  .hotline-label { display: flex; align-items: center; gap: 10px; font-size: .88rem; font-weight: 500; color: var(--gray700); }
+  .hotline-label { display: flex; align-items: center; gap: 10px; font-size: .95rem; font-weight: 500; color: var(--gray700); }
   .hotline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
-  .hotline-num  { font-size: .88rem; font-weight: 700; color: var(--navy); }
+  .hotline-num  { font-size: .95rem; font-weight: 700; color: var(--navy); }
   .announce-item {
     display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--gray100);
     align-items: flex-start;
@@ -291,10 +291,10 @@
     background: var(--blue); color: var(--white); border-radius: 6px;
     min-width: 46px; text-align: center; padding: 6px 4px; flex-shrink: 0;
   }
-  .announce-date .ad-day   { font-size: 1.1rem; font-weight: 700; line-height: 1; }
-  .announce-date .ad-month { font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; }
-  .announce-text strong    { display: block; font-size: .88rem; color: var(--navy); margin-bottom: 2px; }
-  .announce-text small     { font-size: .78rem; color: var(--gray500); }
+  .announce-date .ad-day   { font-size: 1.2rem; font-weight: 700; line-height: 1; }
+  .announce-date .ad-month { font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; }
+  .announce-text strong    { display: block; font-size: .95rem; color: var(--navy); margin-bottom: 2px; }
+  .announce-text small     { font-size: .85rem; color: var(--gray500); }
 
   /* ─── QUICK SERVICES ─────────────────────────────── */
   .qs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -311,7 +311,7 @@
     display: grid; place-items: center;
   }
   .qs-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; }
-  .qs-item span { font-size: .82rem; font-weight: 600; color: var(--navy); }
+  .qs-item span { font-size: .92rem; font-weight: 600; color: var(--navy); }
 
   /* ─── GALLERY ────────────────────────────────────── */
   .gallery-grid {
@@ -332,7 +332,7 @@
   .gallery-overlay span { color: var(--white); font-size: .82rem; font-weight: 600; }
   .gallery-cta { text-align: center; margin-top: 32px; }
   .img-placeholder {
-    background: linear-gradient(135deg, #166534 0%, #052e16 100%);
+    background: linear-gradient(135deg, #0a6624 0%, #013a0f 100%);
     height: 240px; display: flex; align-items: center; justify-content: center;
   }
   .img-placeholder.tall { height: 360px; }
@@ -358,17 +358,17 @@
   .mayor-badge strong { display: block; font-size: 1.1rem; }
   .mayor-badge small  { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
   .mayor-content blockquote {
-    font-family: 'Playfair Display', serif; font-size: 1.35rem; font-style: italic;
+    font-family: 'Playfair Display', serif; font-size: 1.45rem; font-style: italic;
     color: var(--navy); line-height: 1.7; margin-bottom: 20px;
     padding-left: 20px; border-left: 3px solid var(--red);
   }
-  .mayor-content p { color: var(--gray500); line-height: 1.8; font-size: .95rem; margin-bottom: 24px; }
-  .mayor-sig { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); }
-  .mayor-sig small { display: block; font-family: 'DM Sans', sans-serif; font-size: .8rem; color: var(--gray500); font-style: normal; margin-top: 2px; }
+  .mayor-content p { color: var(--gray500); line-height: 1.8; font-size: 1.05rem; margin-bottom: 24px; }
+  .mayor-sig { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); }
+  .mayor-sig small { display: block; font-family: 'DM Sans', sans-serif; font-size: .88rem; color: var(--gray500); font-style: normal; margin-top: 2px; }
 
   /* ─── DEMOGRAPHY TABLE ───────────────────────────── */
   .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--gray100); }
-  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
   thead { background: var(--navy); color: var(--white); }
   th { padding: 14px 20px; text-align: left; font-weight: 600; letter-spacing: .04em; font-size: .82rem; text-transform: uppercase; }
   td { padding: 13px 20px; color: var(--gray700); }
@@ -390,10 +390,10 @@
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
   .footer-brand .logo-text strong { color: var(--white); font-size: 1.1rem; }
   .footer-brand .logo-text small  { color: rgba(255,255,255,.4); }
-  .footer-brand p { font-size: .87rem; line-height: 1.75; margin-top: 14px; color: rgba(255,255,255,.6); }
-  .footer-col h4 { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 16px; }
+  .footer-brand p { font-size: .95rem; line-height: 1.75; margin-top: 14px; color: rgba(255,255,255,.6); }
+  .footer-col h4 { font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 16px; }
   .footer-col ul li { margin-bottom: 10px; }
-  .footer-col ul li a { font-size: .87rem; color: rgba(255,255,255,.6); transition: color var(--transition); }
+  .footer-col ul li a { font-size: .95rem; color: rgba(255,255,255,.6); transition: color var(--transition); }
   .footer-col ul li a:hover { color: var(--white); }
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,.08); padding: 20px 0;
@@ -681,7 +681,7 @@
         </div>
       </article>
       <article class="event-card">
-        <div class="event-img" style="background: linear-gradient(135deg, #dc2626, #7f1d1d);">
+        <div class="event-img" style="background: linear-gradient(135deg, #ff0000, #8b0000);">
           <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span class="event-date-badge">Feb 2026</span>
         </div>
@@ -692,7 +692,7 @@
         </div>
       </article>
       <article class="event-card">
-        <div class="event-img" style="background: linear-gradient(135deg, #166534, #15803d);">
+        <div class="event-img" style="background: linear-gradient(135deg, #0a6624, #013a0f);">
           <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span class="event-date-badge">Dec 2025</span>
         </div>
@@ -724,19 +724,19 @@
           <span class="hotline-num">911</span>
         </div>
         <div class="hotline-item">
-          <span class="hotline-label"><span class="hotline-dot" style="background:#dc2626"></span>Bureau of Fire Protection</span>
+          <span class="hotline-label"><span class="hotline-dot" style="background:#ff0000"></span>Bureau of Fire Protection</span>
           <span class="hotline-num">912</span>
         </div>
         <div class="hotline-item">
-          <span class="hotline-label"><span class="hotline-dot" style="background:#16a34a"></span>Municipal Hospital</span>
+          <span class="hotline-label"><span class="hotline-dot" style="background:#0a8c2a"></span>Municipal Hospital</span>
           <span class="hotline-num">913</span>
         </div>
         <div class="hotline-item">
-          <span class="hotline-label"><span class="hotline-dot" style="background:#dc2626"></span>Philippine Red Cross</span>
+          <span class="hotline-label"><span class="hotline-dot" style="background:#ff0000"></span>Philippine Red Cross</span>
           <span class="hotline-num">914</span>
         </div>
         <div class="hotline-item">
-          <span class="hotline-label"><span class="hotline-dot" style="background:#14532d"></span>Municipal Hotline</span>
+          <span class="hotline-label"><span class="hotline-dot" style="background:#013a0f"></span>Municipal Hotline</span>
           <span class="hotline-num">(046) 888-9600</span>
         </div>
       </div>
@@ -767,7 +767,7 @@
           </div>
         </div>
         <div class="announce-item">
-          <div class="announce-date" style="background: #14532d;"><div class="ad-day">1</div><div class="ad-month">Mar</div></div>
+          <div class="announce-date" style="background: #013a0f;"><div class="ad-day">1</div><div class="ad-month">Mar</div></div>
           <div class="announce-text">
             <strong>Municipal Budget Hearing</strong>
             <small>Open to all residents. Venue: Municipal Session Hall.</small>
@@ -849,7 +849,7 @@
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <div class="svc-icon" style="background: linear-gradient(135deg, #166534, #14532d);">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #0a6624, #013a0f);">
           <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <h3>Libreng Palupa</h3>
@@ -857,7 +857,7 @@
         <a href="#">Learn more →</a>
       </div>
       <div class="service-card">
-        <div class="svc-icon" style="background: linear-gradient(135deg, #dc2626, #991b1b);">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #ff0000, #8b0000);">
           <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h3>Funeral Assistance</h3>
@@ -865,7 +865,7 @@
         <a href="#">Learn more →</a>
       </div>
       <div class="service-card">
-        <div class="svc-icon" style="background: linear-gradient(135deg, #16a34a, #166534);">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #12a034, #0a6624);">
           <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
         </div>
         <h3>Medical Assistance</h3>
@@ -873,7 +873,7 @@
         <a href="#">Learn more →</a>
       </div>
       <div class="service-card">
-        <div class="svc-icon" style="background: linear-gradient(135deg, #15803d, #0a2314);">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #0a8c2a, #013a0f);">
           <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3.33 2 8.67 2 12 0v-5"/></svg>
         </div>
         <h3>Free Scholarship</h3>
@@ -881,7 +881,7 @@
         <a href="#">Learn more →</a>
       </div>
       <div class="service-card">
-        <div class="svc-icon" style="background: linear-gradient(135deg, #b91c1c, #7f1d1d);">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #dd0000, #7a0000);">
           <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
         <h3>Educational Assistance</h3>
@@ -889,7 +889,7 @@
         <a href="#">Learn more →</a>
       </div>
       <div class="service-card">
-        <div class="svc-icon" style="background: linear-gradient(135deg, #22c55e, #15803d);">
+        <div class="svc-icon" style="background: linear-gradient(135deg, #18c244, #0a8c2a);">
           <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <h3>Libreng Pabahay</h3>
@@ -963,7 +963,7 @@
         that drove the province's industrial revolution.
       </p>
     </div>
-    <p style="color:var(--gray500); line-height:1.8; margin-bottom:20px; font-size:.95rem;">
+    <p style="color:var(--gray500); line-height:1.8; margin-bottom:20px; font-size:1.05rem;">
       In-migration has been a continuous phenomenon since the early 1990s, with people drawn by employment
       opportunities in the economic zone. The municipality covers 768.36 hectares with a present population
       density of 147 per hectare. The potential labor force (15 years and above) comprises 72.67% of
@@ -998,7 +998,7 @@
     </div>
 
     <!-- Map -->
-    <h3 style="font-family:'Playfair Display',serif; color:var(--navy); font-size:1.25rem; margin-bottom:20px;">Find Us on the Map</h3>
+    <h3 style="font-family:'Playfair Display',serif; color:var(--navy); font-size:1.35rem; margin-bottom:20px;">Find Us on the Map</h3>
     <div class="map-wrap">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3850.423812345678!2d120.8789!3d14.3889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7b6ab8f1234%3A0xabcdef1234567890!2sMunicipality%20of%20Rosario%2C%20Cavite%2C%20Philippines!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
